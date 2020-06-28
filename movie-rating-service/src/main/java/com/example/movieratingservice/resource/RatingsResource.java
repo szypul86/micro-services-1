@@ -1,9 +1,9 @@
 package com.example.movieratingservice.resource;
 
+
 import com.example.movieratingservice.model.Rating;
 import com.example.movieratingservice.model.UserRating;
 import java.util.Arrays;
-import java.util.List;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,11 +18,12 @@ public class RatingsResource {
   }
 
   @RequestMapping("/users/{userId}")
-  public UserRating getRatingsByUser(@PathVariable("userId") String userId) {
-     UserRating ur =  new UserRating();
-     ur.setRatings(Arrays.asList(
-        new Rating("1234", 4),
-        new Rating("2345", 3)));
+  public UserRating getRatingsByUser(@PathVariable("userId") Long userId) {
+    UserRating ur = new UserRating();
+    ur.setUserId(userId);
+    ur.setRatings(Arrays.asList(
+        new Rating("15", 4),
+        new Rating("14", 3)));
 
     return ur;
   }
